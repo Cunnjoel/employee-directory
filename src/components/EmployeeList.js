@@ -1,4 +1,5 @@
 import Table from 'react-bootstrap/Table'
+
 import { Component } from "react";
 import API from "../utils/API";
 
@@ -69,7 +70,10 @@ class EmployeeList extends Component {
         }else {
             return (
             <div>
-            <input type="text" />
+           <container>
+            <button onClick={() => this.sortUser("1")}>A-Z</button>
+            <button onClick={() => this.sortUser()}>Z-A</button>
+        </container>
             <Table striped bordered hover>
                 <thead>
                   <tr>
