@@ -1,7 +1,21 @@
 import Table from 'react-bootstrap/Table'
 
+import Button from 'react-bootstrap/Button'
 import { Component } from "react";
 import API from "../utils/API";
+
+
+    
+const styles = {
+    button: {
+        margin: '10px'
+    },
+    header: {
+        textAlign: 'center',
+        backgroundColor: 'purple',
+        color: 'white'
+    }
+};
 
 class EmployeeList extends Component {
     state = {
@@ -19,7 +33,7 @@ class EmployeeList extends Component {
                         isLoaded: true,
                         results: res.results
                     }, () => {
-                    
+
                     });
                 },
                 (error) => {
@@ -68,10 +82,12 @@ class EmployeeList extends Component {
             return (
                 <div>
                     <container>
-                        <button onClick={() => this.sortUser()}>A-Z</button>
-                        <button onClick={() => this.sortUser()}>Z-A</button>
+                        <Button variant="primary" style={styles.button} onClick={() => this.sortUser()}>A-Z</Button>
                     </container>
                     <input type="text" id="myInput" onChange={this.filterUser} placeholder="Search for last names.." />
+                    <container >
+                                <h1 style={styles.header} >Employee Directory</h1>
+                            </container>
                     <Table striped bordered hover>
                         <thead>
                             <tr>
